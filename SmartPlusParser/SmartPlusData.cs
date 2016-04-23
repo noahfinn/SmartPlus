@@ -37,8 +37,6 @@ namespace SmartPlusParser
 
         public static List<SmartPlusOrder> dataToOrder(object[] result)
         {
-            int batch = 1;
-            bool passed_header = false;
             List<SmartPlusOrder> orders = new List<SmartPlusOrder>();
             SmartPlusOrder order = new SmartPlusOrder();
             SmartPlusItem item = new SmartPlusItem();
@@ -49,12 +47,6 @@ namespace SmartPlusParser
                     SmartPlusRowH1 row = (SmartPlusRowH1) rec;
                     order = new SmartPlusOrder();
                     orders.Add(order);
-                    if (passed_header == true)
-                    { // TODO: update this to work wtih multiple orders per file
-                        passed_header = false;
-                        batch++;
-                        //order = new SmartPlusOrder();
-                    }
                 }
                 else if (rec.GetType() == typeof(SmartPlusRowH2))
                 {
@@ -65,7 +57,6 @@ namespace SmartPlusParser
                     SmartPlusRowH3 row = (SmartPlusRowH3)rec;
                     order.station = row.station_id;
                     order.vendor_code = row.vendor_code;
-                    passed_header = true;
                 }
                 else if (rec.GetType() == typeof(SmartPlusRowB1))
                 {
