@@ -11,13 +11,6 @@ namespace SmartPlusParser
     {
         static void Main(string[] args)
         {
-            /*var engine = new FileHelperEngine<SmartPlusData>();
-            var result = engine.ReadFile("\\\\Mac\\Home\\Documents\\Visual Studio 2015\\Projects\\SmartPlusParser\\SmartPlusParser\\FINANCE.DAT");
-            foreach (SmartPlusData data in result)
-            {
-                Console.WriteLine("Smart Plus Data:");
-                //Console.WriteLine(cust.Name + " - " + cust.AddedDate.ToString("dd/MM/yy"));
-            }*/
             MultiRecordEngine engine = new MultiRecordEngine(typeof(SmartPlusRowH1), 
                                                                 typeof(SmartPlusRowH2), 
                                                                 typeof(SmartPlusRowH3), 
@@ -32,10 +25,7 @@ namespace SmartPlusParser
             var result = engine.ReadFile("\\\\Mac\\Home\\Documents\\Visual Studio 2015\\Projects\\SmartPlusParser\\SmartPlusParser\\FINANCE.DAT");
             List<SmartPlusOrder> orders = SmartPlusData.dataToOrder(result);
 
-            foreach (var rec in result)
-            {
-                Console.WriteLine(rec.ToString());
-            }
+            Console.WriteLine("done");
         }
     }
 }

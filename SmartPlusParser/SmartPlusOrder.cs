@@ -8,8 +8,13 @@ namespace SmartPlusParser
 {
     class SmartPlusOrder
     {
-        public string station;
-        public string vendor_code;
+        public string station { get; set; }
+        public string vendor_code { get; set; }
+        public int acctg_number { get; set; }
+        public int order_number { get; set; }
+        public int order_revision { get; set; }
+        public string campaign { get; set; }
+
         public List<SmartPlusItem> items { get; set; }
 
         public SmartPlusOrder()

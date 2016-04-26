@@ -4,6 +4,7 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 using FileHelpers;
+using Microsoft.VisualBasic.FileIO;
 
 namespace SmartPlusParser
 {
@@ -39,21 +40,11 @@ namespace SmartPlusParser
             }
         }*/
 
-        [FieldFixedLength(5)]
-        //[FieldConverter(ConverterKind.Date, "mmmdd")]
-        //public DateTime start_date;
+        [FieldFixedLength(8)]
         public string start_date;
 
-        [FieldFixedLength(3)]
-        public string start_date_spacer;
-
-        [FieldFixedLength(5)]
-        //[FieldConverter(ConverterKind.Date, "mmmdd")]
-        //public DateTime end_date;
+        [FieldFixedLength(8)]
         public string end_date;
-
-        [FieldFixedLength(3)]
-        public string end_date_spacer;
 
         [FieldFixedLength(5)]
         public string start_time; // hhmm A or P
@@ -74,7 +65,7 @@ namespace SmartPlusParser
         public string units; // 1 for SG xfer
 
         [FieldFixedLength(10)]
-        public float rate_per_spot;
+        public decimal rate_per_spot;
 
         [FieldFixedLength(10)]
         public float internal_dollars;
